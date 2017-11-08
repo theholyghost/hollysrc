@@ -1,0 +1,16 @@
+A realtime 2D RTS game written in perl 5.24.
+
+Dependencies :
+--------------
+
+cpan :
+------
+
+SDL
+SDL::Surface
+SDLx::App
+
+mine (see directories on top) :
+-------------------------------
+
+HollyGame::*

@@ -1,0 +1,6 @@
+Ultima8 is a remake of the same ultima game.
+
+You need to install SDL from CPAN (the 1.2 version) to use this code.
+
+You also need the HollyGame package which can be found at 
+http://holyghost.yellowcouch.org

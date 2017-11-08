@@ -1,0 +1,4 @@
+This is a piece of perl code which delivers classes to use in Game AI
+especially together or standalone with the HollyGame package.
+
+Derived systems can be found at http://holyghost.yellowcouch.org

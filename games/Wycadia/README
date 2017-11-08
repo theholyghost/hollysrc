@@ -1,0 +1,6 @@
+Wycadia is a RPG/Adventure game written in perl 5.
+
+You need to install SDL from CPAN (the 1.2 version) to use this code.
+
+You also need the HollyGame package which can be found at 
+http://holyghost.yellowcouch.org

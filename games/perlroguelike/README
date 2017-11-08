@@ -1,0 +1,17 @@
+A realtime 2D isometric roguelike game written in perl 5.24.
+
+Dependencies :
+--------------
+
+cpan :
+------
+
+SDL
+SDL::Surface
+SDLx::App
+Hash::MultiKey;
+
+mine (look in upper directories for these) :
+--------------------------------------------
+
+HollyGame::*

@@ -1,0 +1,53 @@
+package orbital2::TimeD;
+
+sub new {
+	my ($class,$d) = shift;
+	my $td = $d;
+
+	bless $self, $class;
+
+	return $self;
+}
+
+package orbital2::TimeDelta;
+
+sub TimeDelta
+{
+	my ($class) = shift;
+
+	bless $self, $class;
+	return $self;
+}
+
+sub Tick
+{
+	my ($class) = shift;
+
+	my ($seconds, $interval, $milliseconds) = shift; ### 2 args 
+
+	my $hope = undef;
+	bless $self, $class;
+}
+
+sub TickCalculate
+{
+	my ($self) = shift;
+	return my $self->hope = $self->$seconds / $self->interval
+
+}
+package orbital2::TimeF;
+
+sub new {
+	my ($class,$f) = shift;
+	my $tf = $f;
+
+	bless $self, $class;
+}
+
+package orbital2::TimeP;
+
+sub new {
+	my ($class,$p) = shift;
+	my $tp = $p;
+}
+

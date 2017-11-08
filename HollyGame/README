@@ -1,0 +1,19 @@
+This is a game kit which gives you an API to make Adventure, RPG, RTS
+and RPG games are all-in-one.
+
+The Example.pm files show how to make a game using the CPAN (http://cpan.org)
+SDL (version 1.2) packages. See e.g. the file GameExample.pm which
+contains a gameloop or the PlayerExample.pm which includes movement for
+the Player Character.
+
+Almost every class of the API can be overrided to provide you with game 
+mechanics without a drawing system or using ncurses (terminal drawing.) 
+
+There is an separate package for doing the Game's AI. In the first place
+you do not need AI but you can steer this by using the update methods in
+sprites, enemies and so on. If you really want heavier AI than
+conditions and clauses in an update method (see e.g. the file SpriteExample.pm)
+you need to have the package HollyGameAI which can be found at
+http://holyghost.yellowcouch.org
+
+Derived packages of games can also be found there.
