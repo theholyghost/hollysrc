@@ -14,7 +14,9 @@ sub OctTree {
 
 	bless $self, ref($class) || $class;
 	$self->build_rec($self->{worldwidth} /2, $self->{worldheight} / 2,
-			$self->{worlddepth} / 2, $self->{level}, @worldobjects, $self->{rootnodes});
+			$self->{worlddepth} / 2, $self->{worldwidth}, 
+			$self->{worldheight}, $self->{worlddepth},
+			$self->{level}, @worldobjects, $self->{rootnodes});
 	return $self;
 }
 
