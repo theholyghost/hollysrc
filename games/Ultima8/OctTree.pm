@@ -45,14 +45,14 @@ sub build_rec {
 		}
 	}
 			
-	build_rec($middletmpx - $worldwidth, $middletmpy - $worldheight, $middletmpz - $worlddepth, $level++, @nextobjects, ()); 
-	build_rec($middletmpx + $worldwidth, $middletmpy - $worldheight, $middletmpz - $worlddepth, $level, @nextobjects, ()); 
-	build_rec($middletmpx - $worldwidth, $middletmpy + $worldheight, $middletmpz - $worlddepth, $level, @nextobjects, ()); 
-	build_rec($middletmpx + $worldwidth, $middletmpy + $worldheight, $middletmpz - $worlddepth, $level, @nextobjects, ()); 
-	build_rec($middletmpx - $worldwidth, $middletmpy - $worldheight, $middletmpz + $worlddepth, $level, @nextobjects, ()); 
-	build_rec($middletmpx + $worldwidth, $middletmpy - $worldheight, $middletmpz + $worlddepth, $level, @nextobjects, ()); 
-	build_rec($middletmpx - $worldwidth, $middletmpy + $worldheight, $middletmpz + $worlddepth, $level, @nextobjects, ()); 
-	build_rec($middletmpx + $worldwidth, $middletmpy + $worldheight, $middletmpz + $worlddepth, $level, @nextobjects, ()); 
+	$self->build_rec($middletmpx - $worldwidth, $middletmpy - $worldheight, $middletmpz - $worlddepth,$worldwidth, $worldheight, $worlddepth, $level++, @nextobjects, ()); 
+	$self->build_rec($middletmpx + $worldwidth, $middletmpy - $worldheight, $middletmpz - $worlddepth,$worldwidth, $worldheight, $worlddepth, $level, @nextobjects, ()); 
+	$self->build_rec($middletmpx - $worldwidth, $middletmpy + $worldheight, $middletmpz - $worlddepth,$worldwidth, $worldheight, $worlddepth, $level, @nextobjects, ()); 
+	$self->build_rec($middletmpx + $worldwidth, $middletmpy + $worldheight, $middletmpz - $worlddepth,$worldwidth, $worldheight, $worlddepth, $level, @nextobjects, ()); 
+	$self->build_rec($middletmpx - $worldwidth, $middletmpy - $worldheight, $middletmpz + $worlddepth,$worldwidth, $worldheight, $worlddepth, $level, @nextobjects, ()); 
+	$self->build_rec($middletmpx + $worldwidth, $middletmpy - $worldheight, $middletmpz + $worlddepth,$worldwidth, $worldheight, $worlddepth, $level, @nextobjects, ()); 
+	$self->build_rec($middletmpx - $worldwidth, $middletmpy + $worldheight, $middletmpz + $worlddepth,$worldwidth, $worldheight, $worlddepth, $level, @nextobjects, ()); 
+	$self->build_rec($middletmpx + $worldwidth, $middletmpy + $worldheight, $middletmpz + $worlddepth,$worldwidth, $worldheight, $worlddepth, $level, @nextobjects, ()); 
 }
 
 sub collision_object_with_divisor {
