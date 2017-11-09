@@ -5,6 +5,7 @@ use lib "../../HollyGame";
 
 package Ultima8::MapRoomBeach;
 use MapRoom; 
+use OctTree;
 
 our @ISA = "HollyGame::MapRoom";
 
@@ -17,6 +18,8 @@ sub MapRoomBeach {
 	$self->{screen} = $screen;
 	$self->{background} = SDL::Video::load_BMP("./images/morningglory.bg.bmp");
 	$self->{screenrect} =SDL::Rect->new(0,0,800,600);
+
+	$self->{octtree} = Ultima8::OctTree->OctTree(4000,4000,200,() );
 
 	###push ($self->{sprites}, ButterFlySprite($self->{app}));
 
