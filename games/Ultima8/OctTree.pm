@@ -10,18 +10,18 @@ sub OctTree {
 
 	$self = { worldwidth => $worldwidth, worldheight => $worldheight, worlddepth => $worlddepth };
 	$self->{level} = 0;
-	$self->{rootnodes} = { 0 => () };
+	$self->{rootnodes} = {};
 
 	bless $self, ref($class) || $class;
 	$self->build_rec($self->{worldwidth}, $self->{worldheight},
 			$self->{worlddepth}, $self->{worldwidth}, 
 			$self->{worldheight}, $self->{worlddepth},
-			$self->{level}, @worldobjects, $self->{rootnodes});
+			$self->{level}, @worldobjects);
 	return $self;
 }
 
 sub build_rec {
-	my ($self, $middlex, $middley, $middlez, $worldwidth, $worldheight, $worlddepth, $level, @worldobjects, %rootnodes) = @_;
+	my ($self, $middlex, $middley, $middlez, $worldwidth, $worldheight, $worlddepth, $level, @worldobjects) = @_;
 
 	my $middletmpx = $middlex / 2;
 	my $middletmpy = $middley / 2;
@@ -31,26 +31,26 @@ sub build_rec {
 	my $worlddepth = $worlddepth / 2;	
 
 	if ($middletmpx <= 1 or $middletmpy <= 1 or $middletmpz <= 1) {
-		return %rootnodes;
+		return;
 	}  
 
 	my @nextobjects = @worldobjects;
 
 	foreach $obj (@worldobjects) {
 		if (collision_object_with_divisor($obj, $middlex, $middley, $middleyz)) {
-			$rootnodes{$level} .= $obj;
+			$self->{rootnodes}{$level} .= $obj;
 			splice(@nextobjects, $obj, 1);
 		}
 	}
 			
-	$self->build_rec($middletmpx, $middletmpy, $middletmpz,$worldwidth, $worldheight, $worlddepth, $level++, @nextobjects, ()); 
-	$self->build_rec($middletmpx + $worldwidth, $middletmpy - $worldheight, $middletmpz - $worlddepth,$worldwidth, $worldheight, $worlddepth, $level, @nextobjects, ()); 
-	$self->build_rec($middletmpx - $worldwidth, $middletmpy + $worldheight, $middletmpz - $worlddepth,$worldwidth, $worldheight, $worlddepth, $level, @nextobjects, ()); 
-	$self->build_rec($middletmpx + $worldwidth, $middletmpy + $worldheight, $middletmpz - $worlddepth,$worldwidth, $worldheight, $worlddepth, $level, @nextobjects, ()); 
-	$self->build_rec($middletmpx - $worldwidth, $middletmpy - $worldheight, $middletmpz + $worlddepth,$worldwidth, $worldheight, $worlddepth, $level, @nextobjects, ()); 
-	$self->build_rec($middletmpx + $worldwidth, $middletmpy - $worldheight, $middletmpz + $worlddepth,$worldwidth, $worldheight, $worlddepth, $level, @nextobjects, ()); 
-	$self->build_rec($middletmpx - $worldwidth, $middletmpy + $worldheight, $middletmpz + $worlddepth,$worldwidth, $worldheight, $worlddepth, $level, @nextobjects, ()); 
-	$self->build_rec($middletmpx + $worldwidth, $middletmpy + $worldheight, $middletmpz + $worlddepth,$worldwidth, $worldheight, $worlddepth, $level, @nextobjects, ()); 
+	$self->build_rec($middletmpx, $middletmpy, $middletmpz,$worldwidth, $worldheight, $worlddepth, $level++, @nextobjects); 
+	$self->build_rec($middletmpx + $worldwidth, $middletmpy - $worldheight, $middletmpz - $worlddepth,$worldwidth, $worldheight, $worlddepth, $level, @nextobjects); 
+	$self->build_rec($middletmpx - $worldwidth, $middletmpy + $worldheight, $middletmpz - $worlddepth,$worldwidth, $worldheight, $worlddepth, $level, @nextobjects); 
+	$self->build_rec($middletmpx + $worldwidth, $middletmpy + $worldheight, $middletmpz - $worlddepth,$worldwidth, $worldheight, $worlddepth, $level, @nextobjects); 
+	$self->build_rec($middletmpx - $worldwidth, $middletmpy - $worldheight, $middletmpz + $worlddepth,$worldwidth, $worldheight, $worlddepth, $level, @nextobjects); 
+	$self->build_rec($middletmpx + $worldwidth, $middletmpy - $worldheight, $middletmpz + $worlddepth,$worldwidth, $worldheight, $worlddepth, $level, @nextobjects); 
+	$self->build_rec($middletmpx - $worldwidth, $middletmpy + $worldheight, $middletmpz + $worlddepth,$worldwidth, $worldheight, $worlddepth, $level, @nextobjects); 
+	$self->build_rec($middletmpx + $worldwidth, $middletmpy + $worldheight, $middletmpz + $worlddepth,$worldwidth, $worldheight, $worlddepth, $level, @nextobjects); 
 }
 
 sub collision_object_with_divisor {
