@@ -14,6 +14,26 @@ sub getxyz
 {
 	my $self = shift;
 
-	return ($x, $y, $z);
+	return ($self->{x}, $self->{y}, $self->{z});
+} 
+sub getx
+{
+	my $self = shift;
+
+	return $self->{x};
+} 
+
+sub gety
+{
+	my $self = shift;
+
+	return $self->{y};
+} 
+
+sub getz
+{
+	my $self = shift;
+
+	return $self->{z};
 } 
 

@@ -3,29 +3,46 @@
 
 sub ChenAlgorithm 
 {
-	my ($class) = @_;
-	my @points = shift;
+	my ($class, @points) = @_;
 
 	bless $self, ref($class) || $class;
 }
 
-sub root_calculation_rec
+sub outer_x_calculation_rec
 {
-	my ($self, $outerx, $outery, $points) = shift;
+	my ($self) = shift;
 
-	if (@points[0]->getxyz[0] < $outerx) {
-		$self->root_calculation_rec(@points[0]->getxyz[0], $outery, shift(@points);	
-	}
-	else if (@points[0]->getxyz[0] < $outery) {
-		$self->root_calculation_rec($outerx, @points[0]->getxyz[1], shift(@points);	
-	}
-
-	return ($outerx, $outery);
+	my @points_sorted_by_x = sort {$a.getx() == $b.getx()} $self->@{points};	
+	return (@points_sorted_by_x, @points_sorted_by_x[0],
+		@points_sorted_by_x[length(@points_sorted_by_x)-1]); 
 }
 
-sub root_calculation
+sub outer_y_calculation_rec
 {
-	$self->root_calculation_rec($self->{points});	
+	my ($self) = @_;
+
+	my @points_sorted_by_y = sort {$a.gety() == $b.gety()} $self->@{points};	
+	return (@points_sorted_by_y, @points_sorted_by_y[0],
+		@points_sorted_by_y[length(@points_sorted_by_y)-1]); 
 }
+
+###
+###sub root_calculation_rec
+###{
+###	if (@points[0]->getxyz()[0] < $outerx) {
+###		$self->root_calculation_rec(@points[0]->getxyz[0], $outery, shift(@points);	
+###	}
+###	else if (@points[0]->getxyz[0] < $outery) {
+###		$self->root_calculation_rec($outerx, @points[0]->getxyz[1], shift(@points);	
+###	}
+###
+###	return ($outerx, $outery);
+###}
+###
+###sub root_calculation
+###{
+###	$self->root_calculation_rec($self->{points});	
+###}
+###
 
 1; 
