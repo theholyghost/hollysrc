@@ -3,14 +3,12 @@
 
 package HollyGameRPGAI::GaussSVMAIVector;
 
-#### use any positional vectors or RPG vector dice rolling systems
-
-our @ISA = "HollyRPGAI::GaussSVM";
+our @ISA = "HollyRPGAI::GaussSVMAI";
  
-sub GaussSVMAIVector
+sub GaussSVMAI
 {
 	my ($class, $s) = @_;
-	$self = { sigma => $s };
+	$self = $class->SUPER::new($s); 
 	bless $self, ref($class) || $class;
 }	
 
@@ -22,4 +20,3 @@ sub calculate_on_vectors
 	return (- $vector->norm / exp( 2 * $self->sigma * $self->sigma ));
 }
 
- 
