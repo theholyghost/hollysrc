@@ -10,11 +10,9 @@ use Room;
 
 sub MapRoom {
 	my $class = shift;
-	my $self = {};
 
 	$self = $class->SUPER::Room;
 	$self->{exits} = ();
-
 	return bless $self, ref($class) || $class;
 }
 
