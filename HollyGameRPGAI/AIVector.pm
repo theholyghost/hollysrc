@@ -47,4 +47,23 @@ sub setxyz
 	$self->{z} = $z;
 }
 
+sub minus
+{
+	my ($self, $vector) = @_;
+
+	return AIVector->AIVector($self->{x} - $vector->getx, 
+			$self->{y} - $vector->gety,
+			$self->{z} - $vector->getz,
+			);
+}
+
+sub norm
+{
+	my ($self) = @_;
+
+	return sqrt ($self->{x} * $self->{x}		
+	+ $self->{y} * $self->{z}		
+	+ $self->{y} * $self->{z});
+}
+
 1;
