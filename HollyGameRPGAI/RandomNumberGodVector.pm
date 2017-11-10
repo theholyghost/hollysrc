@@ -16,3 +16,28 @@ sub RNG {
 	return bless $self, ref($class) || $class;
 }
 
+sub rollD1 {
+	my $self = shift;
+	return rand(1) + 1;
+}
+
+sub rollD3 {
+	my $self = shift;
+	return rand(3) + 1;
+}
+
+sub rollD6 {
+	my $self = shift;
+	return rand(6) + 1;
+}
+
+sub rollD10 {
+	my $self = shift;
+	return rand(10) + 1;
+}
+
+sub rollD20 {
+	my $self = shift;
+	return rand(20) + 1;
+}
+
