@@ -9,8 +9,8 @@ use XYZZY;
 sub RNG {
 	my $class = shift;
 
-	$self = { inputxyzzy => XYZZY->XYZZY(),
-		outputxyzzy => XYZZY->XYZZY(),
+	$self = { xyzzy0 => XYZZY->XYZZY(),
+		xyzzy00 => XYZZY->XYZZY(),
 		sigma => 1,
 		positionsvm => GaussSVMAI->adapt(), };	
 
@@ -21,26 +21,26 @@ sub set_input
 {
 	my ($self, $v) = @_;
 
-	$self->{input} = $v;
+	$self->{xyzzy0} = $v;
 }
 
 sub set_output
 {
 	my ($self, $v) = @_;
 
-	$self->{output} = $v;
+	$self->{xyzzy00} = $v;
 }
 
 sub change_output_position_by_x
 {
 	my $self = shift;
-	$self->{output}->setxyz(	
+	### FIXME
 }
  
 sub calculate_on_vectors
 {
 	my $self = shift;
-	return $self->{positionsvm}->calculate_on_vectors($self->sigma, $self->{input}, $self->{output});
+	return $self->{positionsvm}->calculate_on_vectors($self->sigma, $self->{xyzzy0}, $self->{xyzzy00});
 }
 
 sub rollD1 {
