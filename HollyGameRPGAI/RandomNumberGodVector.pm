@@ -11,7 +11,7 @@ sub RNG {
 
 	$self = { input => AIVector->AIVector(),
 		output => AIVector->AIVector(),
-		};	
+		positionsvm => GaussSVMAIAdapter->GaussSVMAdapter(};	
 
 	return bless $self, ref($class) || $class;
 }

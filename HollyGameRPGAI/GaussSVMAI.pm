@@ -12,6 +12,12 @@ sub GaussSVMAI
 	bless $self, ref($class) || $class;
 }	
 
+sub adapt 
+{
+	my ($self) = @_;
+	return GaussSVMAIAdapter->GaussSVMAIAdapter($self);
+}	
+
 sub calculate_on_vectors
 {
 	my ($self, $vector1, $vector2) = @_;

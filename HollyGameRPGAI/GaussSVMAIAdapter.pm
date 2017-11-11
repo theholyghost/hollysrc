@@ -3,7 +3,7 @@
 
 package HollyGameRPGAI::GaussSVMAIAdapter;
 
-sub new 
+sub GaussSVMAIAdapter 
 {
 	my ($class, $provider) = @_;
 	$self = $class->SUPER::Adapter->Adapter($provider);
@@ -15,6 +15,5 @@ sub calculate_on_vectors
 	my ($self, $vector1, $vector2) = @_;
 	return $self->{provider}->calculate_on_vectors($vector1, $vector2);	
 }
-
 
 

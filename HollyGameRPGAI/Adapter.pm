@@ -10,5 +10,3 @@ sub Adapter
 	bless $self, ref($class) || $class;
 }	
 
-
- 
