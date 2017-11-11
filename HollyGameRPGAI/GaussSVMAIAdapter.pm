@@ -12,8 +12,8 @@ sub GaussSVMAIAdapter
 
 sub calculate_on_vectors
 {
-	my ($self, $vector1, $vector2) = @_;
-	return $self->{provider}->calculate_on_vectors($vector1, $vector2);	
+	my ($self, $sigma, $vector1, $vector2) = @_;
+	return $self->{provider}->calculate_on_vectors($sigma, $vector1, $vector2);	
 }
 
 

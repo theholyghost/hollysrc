@@ -3,12 +3,12 @@
 
 package HollyGameRPGAI::GaussSVMAIVector;
 
-our @ISA = "HollyRPGAI::GaussSVMAI";
+our @ISA = "HollyRPGAI::GaussSVM";
  
 sub GaussSVMAI
 {
 	my ($class, $s) = @_;
-	$self = $class->SUPER::new($s); 
+	$self = $class->SUPER::GaussSVM($s); 
 	bless $self, ref($class) || $class;
 }	
 
@@ -20,9 +20,9 @@ sub adapt
 
 sub calculate_on_vectors
 {
-	my ($self, $vector1, $vector2) = @_;
+	my ($self, $sigma, $vector1, $vector2) = @_;
 
 	my $vector = $vector1->minus($vector2);
-	return (- $vector->norm / exp( 2 * $self->sigma * $self->sigma ));
+	return (- $vector->norm / exp( 2 * $sigma * $sigma ));
 }
 
