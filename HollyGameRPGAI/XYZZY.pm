@@ -1,9 +1,9 @@
 ### Copyright (C) The Holy Ghost 2017
 ###This program is released under the GPL 3.0 and artistic license 2.0.
 
-package HollyGameRPGAI::AIVector;
+package HollyGameRPGAI::XYZZY;
 
-sub AIVector {
+sub XYZZY {
 	my $class = shift;
 
 	$self = { x => rand(), y => rand(), z => rand(), t => rand() };
@@ -51,7 +51,7 @@ sub minus
 {
 	my ($self, $vector) = @_;
 
-	return AIVector->AIVector($self->{x} - $vector->getx, 
+	return XYZZY->XYZZY($self->{x} - $vector->getx, 
 			$self->{y} - $vector->gety,
 			$self->{z} - $vector->getz,
 			);

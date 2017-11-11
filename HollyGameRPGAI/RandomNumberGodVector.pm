@@ -3,18 +3,44 @@
 
 package HollyGameRPGAI::RNG;
 use lib "../HollyGameRPGAI";
-use AIVector;
+use XYZZY;
 ### Random Number God, dice class, using vectors
 
 sub RNG {
 	my $class = shift;
 
-	$self = { input => AIVector->AIVector(),
-		output => AIVector->AIVector(),
+	$self = { inputxyzzy => XYZZY->XYZZY(),
+		outputxyzzy => XYZZY->XYZZY(),
 		sigma => 1,
 		positionsvm => GaussSVMAI->adapt(), };	
 
 	return bless $self, ref($class) || $class;
+}
+
+sub set_input
+{
+	my ($self, $v) = @_;
+
+	$self->{input} = $v;
+}
+
+sub set_output
+{
+	my ($self, $v) = @_;
+
+	$self->{output} = $v;
+}
+
+sub change_output_position_by_x
+{
+	my $self = shift;
+	$self->{output}->setxyz(	
+}
+ 
+sub calculate_on_vectors
+{
+	my $self = shift;
+	return $self->{positionsvm}->calculate_on_vectors($self->sigma, $self->{input}, $self->{output});
 }
 
 sub rollD1 {
