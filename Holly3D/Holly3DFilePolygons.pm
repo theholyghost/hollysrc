@@ -15,19 +15,21 @@ sub fill_polygon_list
 	my ($self, @points) = @_;
 
 	my $previous_point = @points[0];
+	my $point = @points[0];
 	my $polygon = Polygon->Polygon;
-	while (@points != ()) {
-		$point = unshift(@points) {
+	while (scalar(@points) != 0) {
 		if ($previous_point->getxyz() == $point->getxyz()) {
 			push($self->{polygons}, $polygon);
 			$polygon = Polygon->Polygon;
 
-			if (@points != ()) {
+			if (scalar(@points) != 0) {
 				$previous_point = unshift(@points);
-				last;		
+				$point = $previous_point;
+				next;		
 			}
-			next;
+			last;
 		} 
 		$polygon->add_point($point);
+		$point = unshift(@points);
 	}
 } 
