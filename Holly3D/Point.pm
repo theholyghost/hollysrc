@@ -37,3 +37,24 @@ sub getz
 	return $self->{z};
 } 
 
+sub setx
+{
+	my ($self,$x) = @_;
+
+	$self->{x} = $x;
+}
+
+sub sety
+{
+	my ($self,$y) = @_;
+
+	$self->{y} = $y;
+}
+
+sub setz
+{
+	my ($self,$z) = @_;
+
+	$self->{z} = $z;
+}
+
