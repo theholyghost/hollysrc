@@ -5,7 +5,7 @@ sub Point
 {
 	my ($class) = @_;
 
-	my $self = { $x = rand(), $y = rand(), $z = rand(), };
+	my $self = { x => rand(), y => rand(), z => rand(), };
 
 	bless $self, ref($class) || $class;
 }
