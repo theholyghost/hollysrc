@@ -1,3 +1,2 @@
-This is an implmentation of the Chen Algorithm.
+This is an implmentation of a 3D engine in perl 5.
 
-It should be used for collision detection and other game purposes.
