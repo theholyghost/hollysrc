@@ -66,6 +66,57 @@ sub plus
 				);
 }	
 
+sub translateX 
+{	
+	my ($self, $vector3) = @_;
+
+	return Matrix3->Matrix3($self->{x1} + $vector3->{x},
+				$self->{y1},
+				$self->{z1},
+				$self->{x2} + $vector3->{y},
+				$self->{y2},
+				$self->{z2},
+				$self->{x3} + $vector3->{z},
+				$self->{y3},
+				$self->{z3},
+				);
+	
+}
+
+sub translateY 
+{	
+	my ($self, $vector3) = @_;
+
+	return Matrix3->Matrix3($self->{x1},
+				$self->{y1} + $vector3->{x},
+				$self->{z1},
+				$self->{x2},
+				$self->{y2} + $vector3->{y},
+				$self->{z2},
+				$self->{x3},
+				$self->{y3} + $vector3->{z},
+				$self->{z3},
+				);
+	
+}
+
+sub translateZ 
+{	
+	my ($self, $vector3) = @_;
+
+	return Matrix3->Matrix3($self->{x1},
+				$self->{y1},
+				$self->{z1} + $vector3->{x},
+				$self->{x2},
+				$self->{y2},
+				$self->{z2} + $vector3->{y},
+				$self->{x3},
+				$self->{y3},
+				$self->{z3} + $vector3->{z},
+				);
+	
+}
+
 sub multiplybymatrix 
 {	
 	my ($self, $matrix3) = @_;
