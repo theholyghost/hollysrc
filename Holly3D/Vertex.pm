@@ -1,7 +1,7 @@
 ### Copyright (C) The Holy Ghost 2017
 ###This program is released under the GPL 3.0 and artistic license 2.0.
 
-sub Vector3 
+sub Vertex 
 {
 	my ($class,$x,$y,$z) = @_;
 
@@ -60,41 +60,41 @@ sub setz
 
 sub minus
 {	
-	my ($self, $vector3) = @_;
+	my ($self, $vertex) = @_;
 
-	return Vector3->Vector3($self->{x} - $vector3->{x},
-				$self->{y} - $vector3->{y},
-				$self->{z} - $vector3->{z},
+	return Vertex->Vertex($self->{x} - $vertex->{x},
+				$self->{y} - $vertex->{y},
+				$self->{z} - $vertex->{z},
 				);
 }	
 
 sub plus
 {	
-	my ($self, $vector3) = @_;
+	my ($self, $vertex) = @_;
 
-	return Vector3->Vector3($self->{x} + $vector3->{x},
-				$self->{y} + $vector3->{y},
-				$self->{z} + $vector3->{z},
+	return Vertex->Vertex($self->{x} + $vertex->{x},
+				$self->{y} + $vertex->{y},
+				$self->{z} + $vertex->{z},
 				);
 }
 
 sub multiply 
 {	
-	my ($self, $vector3) = @_;
+	my ($self, $vertex) = @_;
 
-	return Vector3->Vector3($self->{x} * $vector3->{x},
-				$self->{y} * $vector3->{y},
-				$self->{z} * $vector3->{z},
+	return Vertex->Vertex($self->{x} * $vertex->{x},
+				$self->{y} * $vertex->{y},
+				$self->{z} * $vertex->{z},
 				);
 }
 
 sub dotproduct
 {
-	my ($self, $vector3) = @_;
+	my ($self, $vertex) = @_;
 
-	return $self->{x} * $vector3->{x} +
-		$self->{y} * $vector3->{y} +
-		$self->{z} * $vector3->{z};
+	return $self->{x} * $vertex->{x} +
+		$self->{y} * $vertex->{y} +
+		$self->{z} * $vertex->{z};
 }
 
 
