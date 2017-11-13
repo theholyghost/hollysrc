@@ -1,7 +1,7 @@
 ### Copyright (C) The Holy Ghost 2017
 ###This program is released under the GPL 3.0 and artistic license 2.0.
 
-sub Vector3 
+sub Matrix3 
 {
 	my ($class,$x1,$y1,$z1,$x2,$y2,$z2,$x3,$y3,$z3) = @_;
 
